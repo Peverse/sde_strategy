@@ -2,20 +2,13 @@ package com.hz;
 
 public class Checkout {
 
-    public void nextInLine(Customer customer, String day) {
+    private DiscountStrategy discountStrategy;
 
-        DiscountStrategy discountStrategy;
+    public void setDiscount(DiscountStrategy discount){
+        this.discountStrategy = discount;
+    }
 
-        // init checkout
-        if(day == "Christmas"){
-            discountStrategy = new ChristmasDiscount(customer);
-        }
-        else if(day == "Black Friday"){
-            discountStrategy = new BlackFridayDiscount(customer);
-        }
-        else {
-            discountStrategy = new DefaultDiscount(customer);
-        }
+    public void nextInLine(Customer customer) {
 
         // Welcome customer
         String welcome = String.format("Hello %s, would you pass me your shopping cart?",

@@ -24,8 +24,11 @@ public class Main {
         ruud.buys(new CuteTeddyBear());
 
         // and proceed to checkout
-        kassa5.nextInLine(piet, "Christmas");
-        kassa5.nextInLine(anne, "Regular");
-        kassa5.nextInLine(ruud, "Black Friday");
+        kassa5.setDiscount(new BlackFridayDiscount(piet));
+        kassa5.nextInLine(piet);
+        kassa5.setDiscount(new ChristmasDiscount(anne));
+        kassa5.nextInLine(anne);
+        kassa5.setDiscount(new DefaultDiscount(ruud));
+        kassa5.nextInLine(ruud);
     }
 }

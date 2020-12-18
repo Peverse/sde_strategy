@@ -10,12 +10,6 @@ public class ChristmasDiscount implements DiscountStrategy{
         this.customer = customer;
     }
 
-    public void setChristmasEve(boolean christmasEve) {
-        isChristmasEve = christmasEve;
-    }
-
-    private boolean isChristmasEve;
-
     public double getDiscount(Product product, int index) {
 
         double discount = 0.0;
